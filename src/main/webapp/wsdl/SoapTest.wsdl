@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://controller.practice.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://controller.practice.com" xmlns:intf="http://controller.practice.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://controller.practice.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addValues">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addValuesResponse">
+    <complexType>
+     <sequence>
+      <element name="addValuesReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="stringValue">
+    <complexType/>
+   </element>
+   <element name="stringValueResponse">
+    <complexType>
+     <sequence>
+      <element name="stringValueReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="stringValueRequest">
+
+      <wsdl:part element="impl:stringValue" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addValuesResponse">
+
+      <wsdl:part element="impl:addValuesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="stringValueResponse">
+
+      <wsdl:part element="impl:stringValueResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addValuesRequest">
+
+      <wsdl:part element="impl:addValues" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SoapTest">
+
+      <wsdl:operation name="addValues">
+
+         <wsdl:input message="impl:addValuesRequest" name="addValuesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addValuesResponse" name="addValuesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="stringValue">
+
+         <wsdl:input message="impl:stringValueRequest" name="stringValueRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:stringValueResponse" name="stringValueResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SoapTestSoapBinding" type="impl:SoapTest">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addValues">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addValuesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addValuesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="stringValue">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="stringValueRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="stringValueResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SoapTestService">
+
+      <wsdl:port binding="impl:SoapTestSoapBinding" name="SoapTest">
+
+         <wsdlsoap:address location="http://localhost:8080/SoapPractice/services/SoapTest"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
